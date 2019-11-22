@@ -18,7 +18,8 @@ jobs:
         - uses: actions/checkout@master
         - name: Create user
           run: |
-            ansible-playbook --connection=local -i .github/hosts.ini -e 'ansible_python_interpreter=/usr/bin/python3' -e 'role_path=/home/runner/work/ansible-user_management/' .github/playbook.yml
+            cd .github
+            ansible-playbook --connection=local -e 'ansible_python_interpreter=/usr/bin/python3' playbook.yml
         - name: Simple check
           run: |
             RESULT=`grep userx /etc/passwd`
