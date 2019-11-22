@@ -6,5 +6,5 @@
   vars:
     user_management:
       - name: userx
-  tasks:
-      - import_tasks: ../tasks/main.yml
+  roles:
+      - ansible-user_management

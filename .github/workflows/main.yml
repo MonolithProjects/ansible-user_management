@@ -16,7 +16,7 @@ jobs:
                 os: [ubuntu-18.04]
         steps:
         - uses: actions/checkout@master
-        - name: Install Hass.io
+        - name: Create user
           run: |
             ansible-playbook  -vvv --connection=local -i .github/hosts.ini -e 'ansible_python_interpreter=/usr/bin/python3' .github/playbook.yml
         - name: Simple check
