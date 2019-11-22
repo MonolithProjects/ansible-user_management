@@ -1,0 +1,29 @@
+---
+- name: Create or edit users
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups | default('')}}"
+    shell: "{{ item.shell | default('/bin/bash') }}"
+    append: yes
+  with_items: "{{ user_management }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Create /etc/ansible/facts.d folder
+  file:
+    path: "{{ local_facts_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Write users into local facts
+  template:
+    src: templates/linux_users.fact.j2
+    dest: "{{ local_facts_path }}/{{ local_facts_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ user_management }}"
+  loop_control:
+    label: "{{ item.name }}"

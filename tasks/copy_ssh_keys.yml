@@ -1,0 +1,22 @@
+---
+- name: Create .ssh folder
+  file:
+    path: "/home/{{ item.name }}/.ssh"
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0700
+  with_items: "{{ user_management }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Copy ssh keys
+  copy:
+    content: "{{ item.ssh_keys | default('') | join('\n') }}"
+    dest: "/home/{{ item.name }}/.ssh/authorized_keys"
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: 0600
+  with_items: "{{ user_management }}"
+  loop_control:
+    label: "{{ item.name }}"

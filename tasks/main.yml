@@ -1,0 +1,11 @@
+---
+- name: Delete users
+  include_tasks: delete_users.yml
+
+- name: Create or modify Linux users
+  include_tasks: modify_users.yml
+  when: user_management[0].name is defined
+
+- name: Copy ssh keys
+  include_tasks: copy_ssh_keys.yml
+  when: user_management[0].name is defined

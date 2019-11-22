@@ -1,0 +1,26 @@
+name: Test build
+
+on:
+    push:
+        branches:
+            - master
+            - develop
+    schedule:
+        - cron: '0 4 * * 0'
+
+jobs:
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu-18.04]
+        steps:
+        - uses: actions/checkout@master
+        - name: Install Hass.io
+          run: |
+            ansible-playbook  -vvv --connection=local -i .github/hosts.ini -e 'ansible_python_interpreter=/usr/bin/python3' .github/playbook.yml
+        - name: Simple check
+          run: |
+            RESULT=`grep userx /etc/passwd`
+            echo "$RESULT"
+            if [ -z "$RESULT" ]; then echo "ERROR: Hassio is not running."; exit 1 ;fi
