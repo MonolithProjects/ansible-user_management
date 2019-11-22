@@ -7,4 +7,4 @@
     user_management:
       - name: userx
   roles:
-      - ansible-user_management
+    - ansible-user_management
