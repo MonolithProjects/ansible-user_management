@@ -1,0 +1,8 @@
+[
+{% for item in user_management %}
+"{{ item.name }}"
+{%- if not loop.last %}
+,
+{% endif %}
+{% endfor %}{{ '\n' -}}
+]

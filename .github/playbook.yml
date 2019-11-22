@@ -1,0 +1,10 @@
+---
+- name: Create user
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  vars:
+    user_management:
+      - name: userx
+  tasks:
+      - import_tasks: ../tasks/main.yml

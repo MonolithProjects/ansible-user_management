@@ -1,0 +1,32 @@
+---
+- name: Check users in vars
+  set_fact:
+    users_in_vars: "{{ user_management | map(attribute='name') | list }}"
+
+- name: Check if user management local facts exist
+  stat:
+    path: "{{ local_facts_path }}/{{ local_facts_file }}"
+  register: status_result
+
+- name: These users will be created or edite by Ansible
+  debug:
+    msg: "{{ users_in_vars }}"
+
+- name: Following users will be deleted
+  debug:
+    msg: "{{ ansible_local.linux_users  | difference(users_in_vars) }}"
+  when: status_result.stat.exists == True
+
+- name: Delete users
+  user:
+    name: "{{ item }}"
+    state: absent
+    remove: yes
+  with_items: "{{ ansible_local.linux_users  | difference(users_in_vars) }}"
+  when: status_result.stat.exists == True
+
+- name: Clean local facts
+  file:
+    state: absent
+    path: "{{ local_facts_path }}/{{ local_facts_file }}"
+  when: user_management[0].name is not defined
