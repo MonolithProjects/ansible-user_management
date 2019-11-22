@@ -15,7 +15,7 @@
 - name: Following users will be deleted
   debug:
     msg: "{{ ansible_local.linux_users  | difference(users_in_vars) }}"
-  when: status_result.stat.exists == True
+  when: status_result.stat.exists
 
 - name: Delete users
   user:
@@ -23,7 +23,7 @@
     state: absent
     remove: yes
   with_items: "{{ ansible_local.linux_users  | difference(users_in_vars) }}"
-  when: status_result.stat.exists == True
+  when: status_result.stat.exists
 
 - name: Clean local facts
   file:
