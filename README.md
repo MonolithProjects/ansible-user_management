@@ -1,4 +1,4 @@
-[![](https://github.com/MonolithProjects/ansible-ansible-user_management/workflows/Test%20build/badge.svg)](https://github.com/MonolithProjects/ansible-user_management/actions)  
+[![](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg)](https://github.com/MonolithProjects/ansible-user_management/actions)  
 
 # User Management
 This Ansible role is for managing (creating, editing, deleting) Linux users.
