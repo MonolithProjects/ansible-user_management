@@ -24,4 +24,4 @@ jobs:
           run: |
             RESULT=`grep userx /etc/passwd`
             echo "$RESULT"
-            if [ -z "$RESULT" ]; then echo "ERROR: Hassio is not running."; exit 1 ;fi
+            if [ -z "$RESULT" ]; then echo "ERROR: User was not created."; exit 1 ;fi

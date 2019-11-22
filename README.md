@@ -4,6 +4,12 @@
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
 
+#### This role can:
+- create users
+- delete users
+- adding/removing users from the groups
+- managing ssh keys
+
 ### Playbook example:
 ```
 ---
@@ -29,5 +35,5 @@ Management includes also the ssh keys keys distribution.
       - ansible-user_management
 ```
 
-## License:
+### License:
 - MIT  
