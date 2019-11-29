@@ -2,7 +2,7 @@
 galaxy_info:
   author: Michal Muransky
   role_name: user_management
-  description: Linux user and ssh keys management
+  description: Linux users and ssh keys management
   company: MonolithProjects
   license: "license (MIT)"
   min_ansible_version: 2.4
