@@ -21,6 +21,7 @@ galaxy_info:
         - all
   galaxy_tags:
     - user
+    - users
     - management
     - manager
     - ssh
