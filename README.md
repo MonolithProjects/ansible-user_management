@@ -7,7 +7,7 @@ Management includes also the ssh keys keys distribution.
 **Note:** this role is using local facts on each server to store user names listed  
 in `user_management`. Once you will remove the user from `user_management`  
 list, the user and the home directory will be deleted from the server. The users  
-not listed in the list, will be not touched.
+not listed in the list, will remain untouched.
 
 #### This role can:
 - create users
