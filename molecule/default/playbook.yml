@@ -1,0 +1,32 @@
+---
+- name: Converge
+  hosts: all
+  user: root
+  gather_facts: yes
+  become: yes
+  roles:
+    - ansible-user_management
+  vars:
+    user_management:
+      - name: userx
+        shell: /bin/bash
+        groups:
+          - games
+        ssh_keys:
+          - 'ssh-ed25519 JUSTanEXAMPLEkey 16112019'
+          - 'ssh-rsa aDIFFERENTexampleKEY 20170509'
+      - name: usery
+        groups:
+          - games
+          - video
+        ssh_keys:
+        - 'ssh-rsa ANDthiISalsoANEXAMPLkey 19112011'
+      - name: user1
+        expires: 1640991600
+        create_home: false
+      - name: mechuser
+        create_home: true
+        system: true
+      - name: mechuser2
+        create_home: false
+        system: true
