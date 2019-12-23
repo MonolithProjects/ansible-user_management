@@ -1,6 +1,6 @@
-| Master | Develop |
-|:-------|:--------|
-|[![](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)|[![](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=develop)](https://github.com/MonolithProjects/ansible-user_management/actions)|
+| Master branch |
+|:--------------|
+|[![](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)|
 
 # User Management
 This Ansible role is for managing (creating, editing, deleting) Linux users.
