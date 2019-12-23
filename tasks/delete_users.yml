@@ -8,7 +8,7 @@
     path: "{{ local_facts_path }}/{{ local_facts_file }}"
   register: status_result
 
-- name: These users will be created or edite by Ansible
+- name: These users will be created or edited by Ansible
   debug:
     msg: "{{ users_in_vars }}"
 

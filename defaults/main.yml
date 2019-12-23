@@ -2,10 +2,13 @@
 local_facts_file: linux_users.fact
 local_facts_path: /etc/ansible/facts.d
 user_management:
-#   - name: userx  <<< User name
-#     groups:      <<< List of additional user groups
+#   - name: userx                       <<< User name (Required)
+#     groups:                           <<< (Optional) List of additional user groups
 #       - games
-#       - docker
-#       - sudo
-#     ssh_keys:    <<< List of Authorized public keys
-#       - 'ssh-ed25519 xxxxxx 16112019' <<< Recommend to ise ed25519 instead of RSA token ;-)
+#       - video
+#     ssh_keys:                         <<< (Optional) List of Authorized public keys
+#       - 'ssh-ed25519 xxxxxxxxx something'
+#     shell: /bin/bash                  <<< (Optional) User shell (default value)
+#     expires: -1                       <<< (Optional) User expiration date in Epoch format (default value)
+#     create_home: yes                  <<< (Optional) Create home directory (default value)
+#     system: no                        <<< (Optional) Create a system account (default value)
