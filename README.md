@@ -1,8 +1,9 @@
-| Master branch |
-|:--------------|
-|[![](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)|
+User Management
+===============
 
-# User Management
+<img src="https://img.shields.io/ansible/quality/44861?style=flat&logo=ansible"/> <img src="https://img.shields.io/ansible/role/d/44861"/> <img src="https://img.shields.io/github/v/release/MonolithProjects/ansible-user_management"/>  
+<a href="https://github.com/MonolithProjects/ansible-user_management/actions"><img src="https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master"/></a>
+
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
 
