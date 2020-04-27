@@ -8,10 +8,6 @@
     path: "{{ local_facts_path }}/{{ local_facts_file }}"
   register: status_result
 
-- name: These users will be created or edited by Ansible
-  debug:
-    msg: "{{ users_in_vars }}"
-
 - name: Following users will be deleted
   debug:
     msg: "{{ ansible_local.linux_users  | difference(users_in_vars) }}"
