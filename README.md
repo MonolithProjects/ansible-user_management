@@ -1,8 +1,9 @@
-User Management
-===============
+# User Management
 
-<img src="https://img.shields.io/ansible/quality/44861?style=flat&logo=ansible"/> <img src="https://img.shields.io/ansible/role/d/44861"/> <img src="https://img.shields.io/github/v/release/MonolithProjects/ansible-user_management"/>  
-<a href="https://github.com/MonolithProjects/ansible-user_management/actions"><img src="https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master"/></a>
+[![Last version](https://img.shields.io/github/v/release/MonolithProjects/ansible-user_management)](https://github.com/MonolithProjects/ansible-user_management)
+[![Galaxy Quality](https://img.shields.io/ansible/quality/44861?style=flat&logo=ansible)](https://galaxy.ansible.com/monolithprojects/user_management)
+[![Galaxy Downloads](https://img.shields.io/ansible/role/d/44861?style=flat&logo=ansible)](https://galaxy.ansible.com/monolithprojects/user_management)
+[![GitHub Actions](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)
 
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
@@ -12,14 +13,16 @@ in `user_management`. Once you will remove the user from `user_management`
 list, the user and the home directory will be deleted from the server. The users  
 not listed in the list, will remain untouched.
 
-#### This role can:
+## This role is able to:
+
 - create users
 - delete users
-- adding/removing users from the groups
-- managing ssh keys
+- add/remove users from the groups
+- manage ssh keys
 
-### Playbook example:
-```
+## Playbook example:
+
+```yaml
 ---
 - name: User Management
   hosts: all
@@ -46,5 +49,11 @@ not listed in the list, will remain untouched.
       - ansible-user_management
 ```
 
-### License:
-- MIT  
+## License
+
+MIT  
+
+## Author Information
+
+
+Created in 2020 by Michal Muransky
