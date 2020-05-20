@@ -8,12 +8,14 @@ lint: |
 platforms:
   - name: centos7
     image: centos:7
-  - name: fedora31
-    image: fedora:31
+  - name: fedora32
+    image: fedora:32
   - name: ubuntu18
     image: ubuntu:18.04
-  - name: debian9
-    image: debian:9
+  - name: ubuntu20
+    image: ubuntu:20.04
+  - name: debian10
+    image: debian:10
 provisioner:
   name: ansible
   lint:

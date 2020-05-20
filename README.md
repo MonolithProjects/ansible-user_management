@@ -32,6 +32,7 @@ not listed in the list, will remain untouched.
   vars:
     user_management:
       - name: user1
+        comment: My Test User
         shell: /bin/zsh
         expires: 1640991600
         groups:
@@ -54,6 +55,5 @@ not listed in the list, will remain untouched.
 MIT  
 
 ## Author Information
-
 
 Created in 2020 by Michal Muransky
