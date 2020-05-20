@@ -30,6 +30,7 @@ not listed in the list, will remain untouched.
   gather_facts: yes
   become: yes
   vars:
+  
     user_management:
       - name: user1
         comment: My Test User
@@ -42,10 +43,13 @@ not listed in the list, will remain untouched.
         ssh_keys:
           - 'ssh-ed25519 xxxxxx my_user_key'
           - 'ssh-rsa xxxxxx my_user_key'
+
       - name: user2
+
       - name: appuser
         system: yes
         create_home: no
+
   roles:
       - ansible-user_management
 ```

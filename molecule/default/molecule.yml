@@ -20,6 +20,14 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  inventory:
+    host_vars:
+      debian10:
+        ansible_python_interpreter: /usr/bin/python3
+      ubuntu18:
+        ansible_python_interpreter: /usr/bin/python3
+      ubuntu20:
+        ansible_python_interpreter: /usr/bin/python3
 verifier:
   name: testinfra
   lint:
