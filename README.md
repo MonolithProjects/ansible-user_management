@@ -3,7 +3,7 @@
 [![Last version](https://img.shields.io/github/v/release/MonolithProjects/ansible-user_management)](https://github.com/MonolithProjects/ansible-user_management)
 [![Galaxy Quality](https://img.shields.io/ansible/quality/44861?style=flat&logo=ansible)](https://galaxy.ansible.com/monolithprojects/user_management)
 [![Galaxy Downloads](https://img.shields.io/ansible/role/d/44861?style=flat&logo=ansible)](https://galaxy.ansible.com/monolithprojects/user_management)
-[![GitHub Actions](https://github.com/MonolithProjects/ansible-user_management/workflows/Test%20build/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)
+[![GitHub Actions](https://github.com/MonolithProjects/ansible-user_management/workflows/molecule%20test/badge.svg?branch=master)](https://github.com/MonolithProjects/ansible-user_management/actions)
 
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
