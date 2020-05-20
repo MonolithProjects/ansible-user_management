@@ -1,4 +1,4 @@
-name: Test build
+name: molecule test
 
 on:
     push:
@@ -6,22 +6,18 @@ on:
             - master
             - develop
     schedule:
-        - cron: '0 4 * * 0'
-
+        - cron: '0 6 * * 0'
 jobs:
-    build:
-        runs-on: ${{ matrix.os }}
-        strategy:
-            matrix:
-                os: [ubuntu-18.04]
-        steps:
-        - uses: actions/checkout@master
-        - name: Create user
-          run: |
-            cd .github
-            ansible-playbook --connection=local -e 'ansible_python_interpreter=/usr/bin/python3' playbook.yml
-        - name: Simple check
-          run: |
-            RESULT=`grep userx /etc/passwd`
-            echo "$RESULT"
-            if [ -z "$RESULT" ]; then echo "ERROR: User was not created."; exit 1 ;fi
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - name: Molecule for Ansible
+        uses: MonolithProjects/action-molecule@v1.0.1
+        env:
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
