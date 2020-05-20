@@ -9,6 +9,7 @@
   vars:
     user_management:
       - name: userx
+        comment: User X
         shell: /bin/bash
         groups:
           - games
