@@ -8,8 +8,8 @@ user_management:
 #       - games
 #       - video
 #     ssh_keys:                         <<< (Optional) List of Authorized public keys.
-#       - 'ssh-ed25519 xxxxxxxxx something'
-#     shell: /bin/bash                  <<< (Optional) User shell (default value).
-#     expires: -1                       <<< (Optional) User expiration date in Epoch format (default value "/bin/bash").
+#       - 'ssh-ed25519 xxxx something'
+#     shell: /bin/bash                  <<< (Optional) User shell (default value "/bin/bash").
+#     expires: -1                       <<< (Optional) User expiration date in Epoch format (default value "-1").
 #     create_home: yes                  <<< (Optional) Create home directory (default value "yes").
 #     system: no                        <<< (Optional) Create a system account (default value "no").

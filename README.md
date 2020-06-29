@@ -8,19 +8,53 @@
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
 
-**Note:** this role is using local facts on each server to store user names listed  
-in `user_management`. Once you will remove the user from `user_management`  
-list, the user and the home directory will be deleted from the server. The users  
-not listed in the list, will remain untouched.
+## How does it works
 
-## This role is able to:
+This role is using local facts on each destination host to store user names listed  
+in `user_management`. Only these users are managed by this role. Once you will remove the user from `user_management` list, the user and the home directory will be deleted from the host. The users  
+not listed in the `user_management` list (users not created by this Ansible Role), will remain untouched.
+
+## This role is able to
 
 - create users
 - delete users
-- add/remove users from the groups
+- edit users
 - manage ssh keys
 
+## Requirements
+
+- Supported Linux distros:
+  - CentOS/RHEL 7,8
+  - Debian 9,10
+  - Fedora 32,31,30,29,28
+  - Ubuntu 16,18,20
+
+  **Note:** These are the weekley tested Linux distributions. The Role will most likely run also on different Linux distros just fine.
+
+## Role Variables
+
+This is a copy from `defaults/main.yml`
+
+```yaml
+local_facts_file: linux_users.fact
+local_facts_path: /etc/ansible/facts.d
+user_management:
+#   - name: userx                       <<< User name (Required).
+#     comment: User X                   <<< (Optional) User description.
+#     groups:                           <<< (Optional) List of groups user will be added to.
+#       - games
+#       - video
+#     ssh_keys:                         <<< (Optional) List of Authorized public keys.
+#       - 'ssh-ed25519 xxxx something'
+#     shell: /bin/bash                  <<< (Optional) User shell (default value "/bin/bash")
+#     expires: -1                       <<< (Optional) User expiration date in Epoch format (default value "-1").
+#     create_home: yes                  <<< (Optional) Create home directory (default value "yes").
+#     system: no                        <<< (Optional) Create a system account (default value "no").
+```
+
 ## Playbook example:
+
+In this example Ansible will create (or eventually edit, if this is not the first run) 3 users. `user1` with comment, `zsh` as an default shell, will expire in `1640991600` Unix epoch time, will be added to user groups `sudo` and `docker`, and finally add two ssh public keys. `user2` will be created with defaults.`appuser` will be created as system user.
 
 ```yaml
 ---
@@ -38,7 +72,6 @@ not listed in the list, will remain untouched.
         expires: 1640991600
         groups:
           - sudo
-          - games
           - docker
         ssh_keys:
           - 'ssh-ed25519 xxxxxx my_user_key'
