@@ -10,9 +10,7 @@ Management includes also the ssh keys keys distribution.
 
 ## How it works
 
-This role is using local facts on each destination host to store user names listed  
-in `user_management`. Only these users are managed by this role. Once you will remove the user from `user_management` list, the user and the home directory will be deleted from the host. The users  
-not listed in the `user_management` list (users not created by this Ansible Role), will remain untouched.
+This role is using local facts on the each host to store the user names listed in `user_management`. Only these users are managed by this role. Once you will remove the user from `user_management` list, the user and the home directory will be deleted from the host. The users not listed in the `user_management` list (users not created by this Ansible Role) will remain untouched.
 
 ## This role is able to
 
@@ -26,7 +24,7 @@ not listed in the `user_management` list (users not created by this Ansible Role
 - Supported Linux distros:
   - CentOS/RHEL 7,8
   - Debian 9,10
-  - Fedora 32,31,30,29,28
+  - Fedora 29,30,31,32
   - Ubuntu 16,18,20
 
   **Note:** These are the weekley tested Linux distributions. The Role will most likely run also on different Linux distros just fine.
@@ -54,13 +52,13 @@ user_management:
 
 ## Playbook example:
 
-In this example Ansible will create (or eventually edit, if this is not the first run) 3 users. `user1` with comment, `zsh` as an default shell, will expire in `1640991600` Unix epoch time, will be added to user groups `sudo` and `docker`, and finally add two ssh public keys. `user2` will be created with defaults.`appuser` will be created as system user.
+In this example the Ansible will create (or eventually edit - if this is not the first run) 3 users. `user1` with comment, `zsh` as a default shell, user will expire in `1640991600` Unix epoch time, user will be added to user groups `sudo` and `docker`, and finally add two ssh public keys. `user2` will be created with defaults.`appuser` will be created as a system user.
 
 ```yaml
 ---
 - name: User Management
   hosts: all
-  user: root
+  user: ubuntu
   gather_facts: yes
   become: yes
   vars:
