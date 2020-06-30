@@ -8,7 +8,7 @@
 This Ansible role is for managing (creating, editing, deleting) Linux users.
 Management includes also the ssh keys keys distribution.
 
-## How does it works
+## How it works
 
 This role is using local facts on each destination host to store user names listed  
 in `user_management`. Only these users are managed by this role. Once you will remove the user from `user_management` list, the user and the home directory will be deleted from the host. The users  
