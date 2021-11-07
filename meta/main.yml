@@ -2,6 +2,7 @@
 galaxy_info:
   author: Michal Muransky
   role_name: user_management
+  namespace: monolithprojects
   description: Linux users and ssh keys management
   company: MonolithProjects
   license: "license (MIT)"
